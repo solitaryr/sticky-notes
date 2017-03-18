@@ -136,12 +136,27 @@
 
 		<div class="pre-info pre-footer">
 			<div class="row">
+				@if (! $site->general->showExp)
 				<div class="col-sm-6">
+				@else
+				<div class="col-sm-4">
+				@endif
 					{? $author = ($paste->author_id > 0) ? link_to("user/u{$paste->author_id}/pastes", $paste->author) : Lang::get('global.anonymous') ?}
 					{{ sprintf(Lang::get('global.posted_by'), $author, date('d M Y, H:i:s e', $paste->timestamp)) }}
 				</div>
 
+				@if ($site->general->showExp)
+				<div class="col-sm-4">
+					{{ Lang::get('admin.expires_on') }}
+					{{ $paste->expire > 0 ? date('d M Y, H:i:s e', $paste->expire) : '-' }}
+				</div>
+				@endif
+
+				@if (! $site->general->showExp)
 				<div class="col-sm-6 text-right">
+				@else
+				<div class="col-sm-4 text-right">
+				@endif
 					{{ sprintf(Lang::get('global.language'), $paste->language) }}
 					&bull;
 					{{ sprintf(Lang::get('global.views'), $paste->hits) }}

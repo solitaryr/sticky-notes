@@ -138,7 +138,7 @@ class StickyNotesOAuthUserProvider implements UserProviderInterface {
 			// Instantiate the Google service using the credentials, http client and storage mechanism for the token
 			$service = new ServiceFactory();
 
-			$google = $service->createService('google', $credentials, $storage, array('userinfo_email', 'groups_provisioning'));
+			$google = $service->createService('google', $credentials, $storage, array('userinfo_email'));
 
 			// Google responded with a code
 			if (Input::has('code'))
@@ -154,6 +154,21 @@ class StickyNotesOAuthUserProvider implements UserProviderInterface {
 				{
 					if ($result['verified_email'])
 					{
+						// We extract the username from the email address of the user
+						list ($username, $domain) = explode('@', $result['email'], 2);
+
+						// Check to make sure that the user is in the list of authorized Google apps domains,
+						// if the apps domains variable is not empty
+						if (trim($this->auth->oauthAppsDomains) != false)
+						{
+							$appsDomains = preg_split("/[\s,]+/", $this->auth->oauthAppsDomains, -1, PREG_SPLIT_NO_EMPTY);
+							if(!in_array($domain, $appsDomains))
+							{
+								 App::abort(401);
+								 return NULL;
+							}
+						}
+
 						// First we will add each credential element to the query as a where clause.
 						// Then we can execute the query and, if we found a user, return it in a
 						// Eloquent User "model" that will be utilized by the Guard instances.
@@ -168,18 +183,15 @@ class StickyNotesOAuthUserProvider implements UserProviderInterface {
 						$user = $query->count() > 0 ? $query->first() : $this->createModel();
 
 						// Determine if user is an admin
-						$googleAdmins = explode("\n", $this->auth->oauthGoogleAdmins);
-
+						$googleAdmins = preg_split("/[\s,]+/", $this->auth->oauthGoogleAdmins, -1, PREG_SPLIT_NO_EMPTY);
 						$isAdmin = in_array($result['email'], $googleAdmins);
 
-						// We extract the username from the email address of the user
-						$parts = explode('@', $result['email']);
-
 						// Insert/Update user info
-						$user->username = $parts[0];
+						$user->username = $username;
 						$user->password = '';
 						$user->salt     = '';
 						$user->email    = $result['email'];
+						$user->dispname = $result['name'];
 						$user->type     = 'oauth';
 						$user->active   = 1;
 						$user->admin    = $isAdmin;

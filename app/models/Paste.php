@@ -51,6 +51,7 @@ class Paste extends Eloquent {
 		'project',
 		'timestamp',
 		'expire',
+		'showExp',
 		'title',
 		'data',
 		'language',

@@ -385,6 +385,29 @@
 
 							<div class="form-group">
 								{{
+									Form::label('show_exp', Lang::get('admin.show_exp'), array(
+										'class' => 'control-label col-sm-3 col-lg-2'
+									))
+								}}
+
+								<div class="col-sm-9 col-lg-10">
+									{{
+										Form::select('show_exp', array(
+											'1' => Lang::get('admin.enabled'),
+											'0' => Lang::get('admin.disabled'),
+										), $site->general->showExp, array(
+											'class' => 'form-control'
+										))
+									}}
+
+									<div class="help-block">
+										{{ Lang::get('admin.show_exp_exp') }}
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								{{
 									Form::label('paste_search', Lang::get('admin.paste_search'), array(
 										'class' => 'control-label col-sm-3 col-lg-2'
 									))
