@@ -361,6 +361,26 @@
 
 							<div class="form-group">
 								{{
+									Form::label('oauth_apps_domains', Lang::get('admin.apps_domains'), array(
+										'class' => 'control-label col-sm-3 col-lg-2'
+									))
+								}}
+
+								<div class="col-sm-9 col-lg-10">
+									{{
+										Form::textarea('oauth_apps_domains', $site->auth->oauthAppsDomains, array(
+											'class' => 'form-control',
+											'rows'  => 3,
+										))
+									}}
+									<div class="help-block">
+										{{ Lang::get('admin.apps_domains_exp') }}
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								{{
 									Form::label('oauth_google_admins', Lang::get('admin.admin_emails'), array(
 										'class' => 'control-label col-sm-3 col-lg-2'
 									))

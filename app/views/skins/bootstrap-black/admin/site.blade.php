@@ -369,8 +369,9 @@
 								<div class="col-sm-9 col-lg-10">
 									{{
 										Form::select('no_expire', array(
-											'0' => Lang::get('admin.pastes_expire'),
-											'1' => Lang::get('admin.pastes_donot_expire'),
+											'none' => Lang::get('admin.noexpire_none'),
+											'user' => Lang::get('admin.noexpire_user'),
+											'all'  => Lang::get('admin.noexpire_all'),
 										), $site->general->noExpire, array(
 											'class' => 'form-control'
 										))
@@ -378,6 +379,29 @@
 
 									<div class="help-block">
 										{{ Lang::get('admin.expiration_exp') }}
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								{{
+									Form::label('show_exp', Lang::get('admin.show_exp'), array(
+										'class' => 'control-label col-sm-3 col-lg-2'
+									))
+								}}
+
+								<div class="col-sm-9 col-lg-10">
+									{{
+										Form::select('show_exp', array(
+											'1' => Lang::get('admin.enabled'),
+											'0' => Lang::get('admin.disabled'),
+										), $site->general->showExp, array(
+											'class' => 'form-control'
+										))
+									}}
+
+									<div class="help-block">
+										{{ Lang::get('admin.show_exp_exp') }}
 									</div>
 								</div>
 							</div>
