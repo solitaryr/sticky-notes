@@ -14,7 +14,7 @@
 
 body {
   padding-top: 70px;
-  background: url("../img/background.jpg") #222;
+  background: #04304b url("../img/background.jpg") no-repeat center 60px;
 }
 footer {
   margin: 30px;
