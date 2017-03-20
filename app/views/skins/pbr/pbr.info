@@ -1,0 +1,8 @@
+{
+	"name"           : "PBR",
+	"themeVersion"   : "1.0",
+	"minCoreVersion" : "1.0",
+	"description"    : "Bootstrap is a mobile-first responsive theme for Sticky Notes v1.0. This is the base theme Darkly (Bootswatch).",
+	"author"         : "Galen Johnson",
+	"authorWebsite"  : "http://pbrmon.unx.sas.com"
+}
