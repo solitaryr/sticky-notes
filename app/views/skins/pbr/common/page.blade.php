@@ -15,7 +15,7 @@
 
 	<script type="text/javascript" src="{{ View::asset('js/jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ View::asset('js/jquery.cookie.js') }}"></script>
-	<script type="text/javascript" src="{{ View::asset('js/jquery.scrollto.js') }}"></script>
+	<script type="text/javascript" src="{{ View::asset('js/jquery.scrollTo.min.js') }}"></script>
 	<script type="text/javascript" src="{{ View::asset('js/bootstrap.min.js') }}"></script>
 	<script type="text/javascript" src="{{ View::asset('js/stickynotes.js') }}"></script>
 	<script type="text/javascript" src="//www.google.com/jsapi"></script>
@@ -54,7 +54,7 @@
 	<div class="container">
 		@if ( ! empty($site->general->bannerTop))
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="bannerTop col-sm-12">
 					{{ $site->general->bannerTop }}
 				</div>
 			</div>
@@ -64,7 +64,7 @@
 
 		@if ( ! empty($site->general->bannerBottom))
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="bannerBottom col-sm-12">
 					{{ $site->general->bannerBottom }}
 				</div>
 			</div>

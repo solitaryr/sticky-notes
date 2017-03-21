@@ -25,7 +25,7 @@
 <div class="container container-body">
 	@if ( ! empty($site->general->bannerTop))
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="bannerTop col-sm-12">
 				{{ $site->general->bannerTop }}
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 
 	@if ( ! empty($site->general->bannerBottom))
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="bannerBottom col-sm-12">
 				{{ $site->general->bannerBottom }}
 			</div>
 		</div>

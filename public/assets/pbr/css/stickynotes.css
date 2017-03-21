@@ -14,7 +14,16 @@
 
 body {
   padding-top: 70px;
-  background: url("../img/background.jpg") #222;
+  background: #04304b url("../img/background.jpg") center 60px no-repeat;
+}
+.bannerTop {
+  background-color: #508767;
+  margin-bottom: 1em;
+  text-align: center;
+  border-radius: .25em;
+}
+.bannerBottom {
+  text-align: center;
 }
 footer {
   margin: 30px;
@@ -69,9 +78,6 @@ section#admin-dashboard #dashboard-stats .well {
   margin-top: 110px;
   display: inline-block;
 }
-.navbar {
-  background: #f2f2f2;
-}
 .jumbotron .glyphicon {
   font-size: 1.7em;
 }
@@ -86,7 +92,6 @@ section#admin-dashboard #dashboard-stats .well {
   display: inline;
 }
 .pre {
-  background: #fdfdfd;
   border: 1px solid #e7e7e7;
   padding: 9px;
   border-radius: 4px 4px 0 0;
@@ -138,8 +143,8 @@ section#admin-dashboard #dashboard-stats .well {
 }
 .well-white {
   border: 1px solid #e7e7e7;
-  color: #454646;
-  background: #fdfdfd;
+  color: #464545;
+  background-color: #fdfdfd;
   box-shadow: none;
 }
 .well-diff {
@@ -174,10 +179,6 @@ section#admin-dashboard #dashboard-stats .well {
 }
 .nav-tabs {
   margin-bottom: 20px;
-}
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover {
-  background: #fafafa;
 }
 .nav-stacked {
   margin-bottom: 15px;
