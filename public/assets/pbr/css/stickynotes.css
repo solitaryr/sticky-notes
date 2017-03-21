@@ -156,7 +156,7 @@ section#admin-dashboard #dashboard-stats .well {
   margin-bottom: 0;
 }
 .table-striped-dark > tbody > tr:nth-child(odd) > td {
-  background: #f3f3f3;
+  background: #72b4d5;
 }
 .table-user > tbody > tr > td {
   vertical-align: middle;
